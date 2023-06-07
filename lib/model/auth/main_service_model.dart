@@ -1,16 +1,14 @@
 class MainServiceModel {
   List<MainServiceData>? mainServiceData;
 
-
   MainServiceModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
       mainServiceData = <MainServiceData>[];
       json['data'].forEach((v) {
-        mainServiceData!.add(new MainServiceData.fromJson(v));
+        mainServiceData!.add(MainServiceData.fromJson(v));
       });
     }
   }
-
 }
 
 class MainServiceData {
@@ -31,22 +29,19 @@ class MainServiceData {
   int? adminWaitingTime;
   int? id;
 
-
-
   MainServiceData.fromJson(Map<String, dynamic> json) {
     openForCompany = json['openForCompany'];
     warrantyTime = json['warrantyTime'];
     if (json['workingTime'] != null) {
       workingTime = <WorkingTime>[];
       json['workingTime'].forEach((v) {
-        workingTime!.add(new WorkingTime.fromJson(v));
+        workingTime!.add(WorkingTime.fromJson(v));
       });
     }
     deleted = json['deleted'];
-    name = json['name'] != null ? new Name.fromJson(json['name']) : null;
-    description = json['description'] != null
-        ? new Name.fromJson(json['description'])
-        : null;
+    name = json['name'] != null ? Name.fromJson(json['name']) : null;
+    description =
+        json['description'] != null ? Name.fromJson(json['description']) : null;
     icon = json['icon'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
@@ -58,8 +53,6 @@ class MainServiceData {
     adminWaitingTime = json['adminWaitingTime'];
     id = json['id'];
   }
-
-
 }
 
 class WorkingTime {
@@ -70,8 +63,6 @@ class WorkingTime {
   bool? active;
   int? technicalArriveTime;
 
-
-
   WorkingTime.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     day = json['day'];
@@ -80,7 +71,6 @@ class WorkingTime {
     active = json['active'];
     technicalArriveTime = json['technicalArriveTime'];
   }
-
 }
 
 class Name {
